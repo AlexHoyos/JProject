@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 90px; 
+    background: #ffffff;
+    padding: 10px;
+    z-index: 99;
+  }
+  
+header img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+.navigation{
+    position: fixed;
+    top: 80x;
+    left: 0;
+    width: 70px;
+    height:calc(100vh - 80px);
+    background: #ffffff;
+    box-shadow: 10px 10px 0 #000000;
+    border-left: 10px solid #ffffff;
+    border-bottom-right-radius: 30px;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    z-index: 99;
+}
+
+.navigation:hover{
+    width: 300px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 50px;
+    text-align: center;
+    align-items: center;
+}
+
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.navigation ul li:hover{
+    background: #000000;
+    color:#ffffff;
+}
+
+.navigation ul li.active{
+    background: #000000;
+    color: #ffffff;
+}
+
+.navigation:hover ul li.active{
+    background: #fff;
+}
+
+.navigation:hover ul li.active:hover {
+    background: #000000;
+    color:#ffffff;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #000000;
+}
+
+.navigation ul li.active a {
+    color: #fff;
+}
+
+.navigation:hover ul li.active a{
+    color: #000000;
+}
+
+.navigation ul li a:hover, .navigation:hover ul li.active a:hover{
+    color: #fff;
+}
+
+.navigation ul li.active a::before, .navigation:hover ul li.active:hover a::before{
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #000000;
+}
+
+.navigation ul li.active a::after, .navigation:hover ul li.active:hover a::after{
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #000000;
+}
+
+.navigation:hover ul li.active a::after{
+    box-shadow: 15px -15px 0 #ffffff;
+}
+
+.navigation:hover ul li.active a::before{
+    box-shadow: 15px 15px 0 #fff;
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon{
+    position: relative;
+    font-size: 1.5em;
+    z-index: 1;
+}
+
+.navigation ul li a .tittle{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+
+/*RESPONSIVE CODE. No editar*/
+
+@media (max-width: 1300px) {}
+
+@media (max-width: 1120px) {}
+
+@media (max-width: 420px) {}
