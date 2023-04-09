@@ -217,7 +217,8 @@ body{
     white-space: nowrap;
     font-size: 5vw;
     z-index: 1;
-    right: 1000px;
+    right: 1200px;
+    top: 150px;
     transform: translateY(100px);
 }
 
@@ -226,8 +227,9 @@ body{
     color: #000000;
     white-space: nowrap;
     font-size: 7vw;
-    right: -900px;
-    z-index: 2;
+    right: -1100px;
+    top: -80px;
+    /*z-index: 2;*/
     transform: translateY(200px);
 }
 
@@ -239,7 +241,7 @@ body{
     background: #a78906;
     color: #000000;
     font-size: 1.5em;
-    z-index: 9;
+    z-index: 1;
     transform: translateY(-5px);
 }
 

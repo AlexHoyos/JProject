@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo"><img src="IMG/icon1.png" id="logo"></a>
+            <ul>
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#">Biografía</a></li>
+                <li><a href="#">Galería</a></li>
+                <li><a href="#">Venta</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </header>
+        <section>          
+            <img src="IMG/main_m.png" id="main">
+            <img src="IMG/triangulo_m.png" id  ="triangulo">
+            <img src="IMG/gotas_m.png" id="gotas">
+            <h2 id="text">Jesús Palacios</h2>
+            <a href="#sec" id="btn">Empezar</a>
+            <img src="IMG/main_mf.png" id="main_front">
+            <img src="IMG/main_mff.png" id="main_front2">
+            <h4 id="title">Regocijo Cósmico</h4>
+        </section>
+        <div class="sec" id="sec">
+            <h2>Biografía</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ullam dolore consectetur ex minus tempore, deserunt cupiditate quod nostrum inventore impedit magnam error? Ab, ex. Facere dicta atque quos corrupti quam ipsa ipsum vero, eius natus magni aliquam perspiciatis consequuntur rem corporis. Esse excepturi nihil numquam expedita quaerat voluptates fugiat ex odit, soluta nesciunt obcaecati repudiandae cumque quasi beatae dolorem praesentium doloribus minima sed explicabo! Saepe officia accusamus modi accusantium, veniam minima soluta iusto aliquid molestiae tempore veritatis! Facere quaerat ducimus recusandae, dolorem commodi alias culpa eos ipsam hic molestias. <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, placeat amet quod eos quas earum quaerat sint tempore nostrum excepturi minus laborum aspernatur, aliquam, eius itaque necessitatibus delectus illum esse laudantium. Quo itaque maiores eius minima suscipit incidunt magni dignissimos explicabo facere, corporis assumenda dolore deserunt facilis culpa error tenetur fugit! Labore veritatis expedita laudantium, deleniti debitis dolore corporis molestias?.<br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, reiciendis. Incidunt omnis vel sit quod fugiat eaque asperiores, voluptatum saepe dolorum possimus necessitatibus et blanditiis? Dolorum ullam nisi id praesentium, dignissimos aspernatur ab voluptate. Dolorum magni odit sapiente error aspernatur tenetur aliquid odio praesentium, culpa nemo ipsa impedit reprehenderit exercitationem dolorem. Perspiciatis labore autem illum voluptates aspernatur, dolorum in cum. <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, vel labore, non enim placeat animi eum, est ipsum eos id ipsam eaque officiis praesentium? Accusamus laboriosam, cupiditate reiciendis a magnam impedit eveniet, commodi ut velit expedita laborum vero dicta eligendi tempora quibusdam enim doloribus distinctio ab! Officiis soluta repudiandae, ipsum, perspiciatis ducimus voluptas rerum distinctio vel iste deserunt iusto magni reprehenderit accusantium officia. Repellat odio deserunt velit dolorem maxime voluptatum.</p>
+        </div>
+        <script>
+            let main = document.getElementById('main');
+            let triangulo = document.getElementById('triangulo');
+            let gotas = document.getElementById('gotas');
+            let text = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let main_front = document.getElementById('main_front');
+            let main_front2 = document.getElementById('main_front2');
+            let title = document.getElementById('title');
+            let header = document.querySelector('header');
+
+            window.addEventListener('scroll', function(){
+                let value =window.scrollY;
+                gotas.style.top = value * 1.05 + 'px';
+                triangulo.style.left = value * -0.45 + 'px';
+                main.top = value * 0.5 + 'px';
+                main_front.style.left = value * -2 + 'px';
+                main_front2.style.left = value * 4 + 'px';
+                text.style.marginRight = value * -5 + 'px';
+                text.style.marginTop = value * 0.7 + 'px';
+                btn.style.marginTop = value * 0.7 + 'px';
+                title.style.marginRight = value * 7 + 'px';
+                title.style.marginTop = value * 0.7 + 'px';
+                header.style.top = value * -0.35 + 'px';
+            })
+        </script>
+    </body>
+</html>
