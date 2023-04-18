@@ -92,10 +92,10 @@
         <img src="IMG/triangulo_m.png" id="triangulo">
         <img src="IMG/gotas_m.png" id="gotas">
         <h2 id="text">Jesús Palacios</h2>
+        <a href="galery.php" id="btn">Explorar Galería</a>
         <img src="IMG/main_mf.png" id="main_front">
         <img src="IMG/main_mff.png" id="main_front2">
         <h4 id="title">Regocijo Cósmico</h4>
-        <a href="galery.php" id="btn">Explorar Galería</a>
     </section>
     <!--Biography (preview)-->
     <section class="bio">

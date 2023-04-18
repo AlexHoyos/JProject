@@ -9,6 +9,7 @@
         <link href="CSS/shopping.css" rel="stylesheet" />
         <link href="CSS/style.scss" rel="stylesheet" />
         <?php include("head.php"); ?>
+        <?php include("pantalla_compra.php"); ?>
     </head>
     <body>
         <?php include("menunav.php"); ?>
@@ -209,7 +210,7 @@
                            Pago seguro
                         </h5>
                         <p>
-                           Al pagar por el cuadro, se le generará una boleta en PDF para que pueda hacerlo mediante un dépoisto en el banco de confianza.
+                           Al pagar por el cuadro, se le generará una boleta en PDF para que pueda hacerlo mediante un depósito en el banco de confianza.
                         </p>
                      </div>
                   </div>
@@ -263,12 +264,12 @@
          </div>
       </section>
       <!-- end arrival section -->
-      
+   
       <!-- product section -->
       <section class="product_section layout_padding">
          <div class="container">
             <div class="heading_container heading_center">
-               <h2>
+               <h2 id="pinturas">
                   Pinturas <span>disponibles</span>
                </h2>
             </div>
@@ -278,7 +279,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Óleo/Tela</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()"  class="option2" >Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -295,7 +296,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -312,7 +313,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -329,7 +330,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -346,7 +347,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -363,7 +364,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -380,7 +381,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -397,7 +398,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -414,7 +415,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -431,7 +432,7 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="" class="option1">Técnica</a>
-                           <a href="" class="option2">Comprar</a>
+                           <a href="javascript:abrir()" class="option2">Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
@@ -450,6 +451,14 @@
             </div>
          </div>
       </section>
+      
+      
+      <!--Para hacer las funcionalidades en la pantalla emergente-->
+     <script src="JS/funciones_compra.js"></script>
+      <!--Script para generar el pdf--> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+
+       
       <script src="JS/menunav.js"></script>
       <!-- end product section -->
       <!-- jQery -->

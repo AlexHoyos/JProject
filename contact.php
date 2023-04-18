@@ -13,7 +13,7 @@
             <div class="perfil">
                 <img src="IMG/c1.png">
             </div>
-            <form action="">
+            <form action="APP/actions/SendMsg.php" method="post" id="formContacto">
                 <div class="title">
                     <h2>CONTACTO</h2>
                 </div>
@@ -23,20 +23,20 @@
                 <div class="half">
                     <div class="item">
                     <label for="name">Nombre</label>
-                    <input type="text" id = "nombre">
+                    <input type="text" id = "nombre" name="nombre">
                     </div>
                     <div class="item">
                     <label for="email">E-mail</label>
-                    <input type="text" id = "email">
+                    <input type="text" id = "email" name="email">
                     </div>
                     <div class="item">
                     <label for="email">Teléfono</label>
-                    <input type="text" id = "telefono">
+                    <input type="text" id = "telefono" name="telefono">
                     </div>
                 </div>
                 <div class="full">
                     <label for="message">Mensaje</label>
-                    <textarea rows="4" name="" id = "message"></textarea>
+                    <textarea rows="4" id = "mensaje" name="mensaje" form="formContacto"></textarea>
                 </div>
                 <div class="action">
                     <input type="submit" value = "Enviar">
