@@ -1,3 +1,6 @@
+    <?php
+    include_once 'APP/main.php';
+    ?>
     <!-- Basic -->
     <meta charset="UTF-8" />
     <meta hhtp-equiv="X-UA-Compatible" content="IE-edge">

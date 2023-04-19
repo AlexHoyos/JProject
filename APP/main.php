@@ -45,3 +45,6 @@ AModel::SetConnection($conn);
 
 include_once 'models/Admin.php';
 include_once 'models/Mensaje.php';
+include_once 'models/Direccion.php';
+include_once 'models/Venta.php';
+include_once 'models/Pintura.php';

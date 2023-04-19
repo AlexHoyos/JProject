@@ -10,6 +10,19 @@ abstract class AModel {
         Self::$connection = $conn;
     }
 
+    protected static function _fetch($query, $method = PDO::FETCH_OBJ):array {
+        try {
+
+            $stmt = Self::$connection->prepare($query);
+            $stmt->execute();
+            $rows = $stmt->fetchAll($method);
+            return $rows;
+
+        } catch(PDOException $e){
+            return [];
+        }
+    }
+
     public static function get($class = Self::class, $attr = "*", $conditions = "", $orderBy = "", $limit = "", $pdoMode = PDO::FETCH_ASSOC):array{
 
         try {
@@ -38,6 +51,7 @@ abstract class AModel {
             return true;
 
         } catch(PDOException $e){
+            var_dump($e);
             return false;
         }
     }

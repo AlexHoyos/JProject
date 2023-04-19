@@ -1,6 +1,7 @@
-function abrir(){
+function abrir(id){
     document.getElementById('fondo').style.display="flex";
     document.getElementById('correos').style.display="none";
+    document.getElementById('pid').value=id;
  }
 
  function cerrar(){
@@ -13,20 +14,23 @@ function abrir(){
  }
 
  function Verificar(){
-    let c1=document.getElementById('c1').value;
-    let c2=document.getElementById('c2').value;
-    let co1=document.getElementById('c1').value.length;
-    let co2=document.getElementById('c2').value.length;
-    let n1=document.getElementById('n1').value.length;
-    let n2=document.getElementById('n2').value.length;
-    let n3=document.getElementById('n3').value.length;
-    let num=document.getElementById('num').value.length;
-    let cp=document.getElementById('cp').value.length;
-    let pais=document.getElementById('pais').value.length;
-    let calle=document.getElementById('calle').value.length;
-    let casa=document.getElementById('casa').value.length;
-    let es=document.getElementById('es').value.length;
-    let mun=document.getElementById('mun').value.length;
+    var pid = document.getElementById('pid').value
+    var c1=document.getElementById('c1').value;
+    var c2=document.getElementById('c2').value;
+    var co1=document.getElementById('c1').value.length;
+    var co2=document.getElementById('c2').value.length;
+    var n1=document.getElementById('n1').value.length;
+    var n2=document.getElementById('n2').value.length;
+    var n3=document.getElementById('n3').value.length;
+    var num=document.getElementById('num').value.length;
+    var cp=document.getElementById('cp').value.length;
+    var pais=document.getElementById('pais').value.length;
+    var calle=document.getElementById('calle').value.length;
+    var casa=document.getElementById('casa').value.length;
+    var casa_int=document.getElementById('casaInt').value.length;
+    var colonia = document.getElementById('colonia').value.length;
+    var es=document.getElementById('es').value.length;
+    var mun=document.getElementById('mun').value.length;
     var res= c1==c2;
     var cont=0;
 
@@ -70,16 +74,62 @@ function abrir(){
       let PA=document.getElementById('pais').value;
       let CALLE=document.getElementById('calle').value;
       let CASA=document.getElementById('casa').value;
+      let CASAINT=document.getElementById('casaInt').value;
       let ES=document.getElementById('es').value;
       let MUN=document.getElementById('mun').value;
+      let COLONIA = document.getElementById('colonia').value;
 
-      let datos='Número de cuenta: 00000000000000000000000\nNúmero para tranferencia: 000000000000000000000\n \n Datos del cliente \n Nombre: ' +N1+ N2+ ' '+ N3+ 
-      '\n Correo: '+ C1+ '\n Número: '+ NUM+ '\n \n Dirección \n Código Postal: '+ CP+ '\n Calle: '+ CALLE+'\n Número de casa: '+ CASA+ '\n Municipio: '+ MUN+ 
+      let datos='Número de cuenta: 00000000000000000000000\nNúmero para tranferencia: 000000000000000000000\n \n Datos del cliente \n Nombre: ' +N1+ ' ' + N2+ ' '+ N3+ 
+      '\n Correo: '+ C1+ '\n Número: '+ NUM+ '\n \n Dirección \n Código Postal: '+ CP+ '\n Calle: '+ CALLE+'\n Número de casa: '+ CASA+ '\nNumero interior: ' + CASAINT + '\nColonia: ' + COLONIA + '\n Municipio: '+ MUN+ 
       '\n Estado: '+ ES+ '\n País: '+ PA; 
 
       var doc=new jsPDF();
       doc.text(10,10,datos);
-      doc.save('Factura.pdf');
+      doc.save('Boleta_Pago.pdf');
 
-      }
+        var pdf = btoa(doc.output()); 
+
+        //var file_name = 'hello world';
+        console.log({
+          pdf: pdf,
+          nombre:N1,
+          apellido_pat: N2,
+          apellido_mat: N3,
+          correo:C1,
+          telefono:NUM,
+          cp:CP,
+          calle:CALLE,
+          num_int:CASAINT,
+          num_ext:CASA,
+          pais:PA,
+          municipio:MUN,
+          colonia:COLONIA,
+          estado:ES,
+          pintura_id:pid
+        })
+            $.ajax({
+              method: "POST",
+              url: "APP/actions/SendBoleta.php",
+              data: {
+                pdf: pdf,
+                nombre:N1,
+                apellido_pat: N2,
+                apellido_mat: N3,
+                correo:C1,
+                telefono:NUM,
+                cp:CP,
+                calle:CALLE,
+                num_int:CASAINT,
+                num_ext:CASA,
+                pais:PA,
+                municipio:MUN,
+                colonia:COLONIA,
+                estado:ES,
+                pintura_id:pid
+              },
+            }).done(function(data){
+            //   alert(data);
+              console.log(data);
+            }); 
+        }
   }

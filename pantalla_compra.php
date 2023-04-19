@@ -11,6 +11,7 @@
             <div class="msj">Es necesario que ingrese su correo de forma correcta ya que la boleta de pago se le enviará por dicho medio.</div><br>
             <form action="">
                <div class="cont-input">
+                  <input type="hidden" name="pintura_id" id="pid">
                   <br>Nombre: <input type="text" placeholder=" Nombres"  id="n1">
                   <input type="text" placeholder=" Primer apellido"  id="n2">
                   <input type="text" placeholder=" Segundo apellido" id="n3"><br><br>
@@ -21,6 +22,8 @@
                   Código Postal: <input type="number" placeholder=" CP" id="cp"> &nbsp &nbsp
                   Calle: <input type="text" placeholder="Calle" id="calle"><br><br>
                   Número casa: <input type="number" placeholder=" #Casa" id="casa"> &nbsp &nbsp &nbsp
+                  Número interior: <input type="text" placeholder="#Numero Interior" id="casaInt"><br><br>
+                  Colonia: <input type="text" placeholder="Colonia" id="colonia"> &nbsp &nbsp &nbsp
                   País: <input type="text" placeholder=" Pais" id="pais"><br><br>
                   &nbsp &nbsp &nbsp &nbsp  Municipio: <input type="text" placeholder=" Municipio" id="mun"> 
                   Estado: <input type="text" placeholder=" Estado" id="es"><br><br>

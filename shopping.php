@@ -274,177 +274,28 @@
                </h2>
             </div>
             <div class="row">
+               <?php
+               $pinturas = Pintura::getPinturasDispo();
+               foreach($pinturas as $pintura){
+               ?>
                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="" class="option1">Óleo/Tela</a>
-                           <a href="javascript:abrir()"  class="option2" >Comprar</a>
+                           <a href="#" class="option1"><?=$pintura->tecnica?></a>
+                           <a href="javascript:abrir(<?=$pintura->id?>)"  class="option2" >Comprar</a>
                         </div>
                      </div>
                      <div class="img-box">
-                        <img src="IMG/pinturas/img39.jpg" alt="">
+                        <img src="IMG/pinturas/<?=$pintura->vista_url?>" alt="">
                      </div>
                      <div class="detail-box">
-                        <h5>Neblina de mal recuerdo</h5>
-                        <h6>$99,999.00</h6>
+                        <h5><?=$pintura->titulo?></h5>
+                        <h6>$<?=$pintura->precio?></h6>
                      </div>
                   </div>
                </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="" class="option1">Técnica</a>
-                           <a href="javascript:abrir()" class="option2">Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/#" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5>Nombre pintura</h5>
-                        <h6>$99,999.00</h6>
-                     </div>
-                  </div>
-               </div> 
-               
+               <?php } ?>
             </div>
             <div class="btn-box">
                <a href="">Ver todas las pinturas</a>
@@ -453,8 +304,6 @@
       </section>
       
       
-      <!--Para hacer las funcionalidades en la pantalla emergente-->
-     <script src="JS/funciones_compra.js"></script>
       <!--Script para generar el pdf--> 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
 
@@ -469,5 +318,7 @@
       <script src="JS/bootstrap.js"></script>
       <!-- custom js -->
       <script src="JS/custom.js"></script>
+      <!--Para hacer las funcionalidades en la pantalla emergente-->
+      <script src="JS/funciones_compra.js"></script>
     </body>
 </html>
