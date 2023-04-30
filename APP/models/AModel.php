@@ -94,6 +94,7 @@ abstract class AModel {
                 return true;
 
             } catch(PDOException $e){
+                var_dump($e);
                 return false;
             }
 

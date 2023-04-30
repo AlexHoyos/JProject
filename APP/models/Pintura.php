@@ -36,4 +36,8 @@ class Pintura extends AModel {
 
     }
 
+    public static function getAll(): array {
+        return Self::get(Self::class, "*", "", "ORDER BY id DESC", "", PDO::FETCH_OBJ);
+    }
+
 }
