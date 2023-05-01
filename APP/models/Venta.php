@@ -73,4 +73,8 @@ class Venta extends AModel {
         return floatval($ingreso[0]->INGRESO_BRUTO);
     }
 
+    public static function countByStatus($status = "pendiente"){
+        return (AModel::_fetch("SELECT COUNT(*) AS total FROM ".Self::getTablename()." WHERE estado = '{$status}'")[0])->total;
+    }
+
 }

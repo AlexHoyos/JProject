@@ -30,7 +30,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white <?=($actual=="estadisticas")?"active":""?>">
+        <a href="estadisticas.php" class="nav-link text-white <?=($actual=="estadisticas")?"active":""?>">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
           Estadisticas
         </a>
