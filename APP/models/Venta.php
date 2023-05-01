@@ -47,4 +47,18 @@ class Venta extends AModel {
         return (count($ventas) == 0);
     }
 
+    public static function getIngresosBrutosTotal($tiempo = "all"):float {
+        if($tiempo == "dia"){
+            $ingreso = AModel::_fetch("SELECT SUM(precio_venta) as INGRESO_BRUTO FROM ventas WHERE estado = 'completado' AND created_at = '". date("Y-m-d") ."'", PDO::FETCH_OBJ);
+        } else if($tiempo == "mes"){
+            $ingreso = AModel::_fetch("SELECT SUM(precio_venta) as INGRESO_BRUTO FROM ventas WHERE estado = 'completado' AND MONTH(created_at) = MONTH('". date("Y-m-d") ."')", PDO::FETCH_OBJ);
+        } else if($tiempo = "anio"){
+            $ingreso = AModel::_fetch("SELECT SUM(precio_venta) as INGRESO_BRUTO FROM ventas WHERE estado = 'completado' AND YEAR(created_at) = YEAR('". date("Y-m-d") ."')", PDO::FETCH_OBJ);
+        } else {
+            $ingreso = AModel::_fetch("SELECT SUM(precio_venta) as INGRESO_BRUTO FROM ventas WHERE estado = 'completado'", PDO::FETCH_OBJ);
+        }
+        
+        return floatval($ingreso[0]->INGRESO_BRUTO);
+    }
+
 }

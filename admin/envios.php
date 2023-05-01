@@ -42,6 +42,8 @@
                             if($envio != null){
                                 $venta = Venta::getVentaByEnvioId($id);
                                 if($venta != null) {
+                                    $direccion = Direccion::getDireccionById($venta->id_direccion);
+                                    if($direccion != null){
                         ?>
 
                         <h4 id="msgNombre">Datos del envio</h4>
@@ -52,11 +54,24 @@
                         <b>Enlace: </b>
                         <p><a href="<?= (!empty($envio->url_rastreo))?$envio->url_rastreo:"#"?>">Link de rastreo</a></p>
                         <b>Enviado el: </b>
-                        <p><?=$envio->created_at?></p><br>
+                        <p><?=$envio->created_at?></p>
+                        <b>Recibe: </b>
+                        <p><?=$venta->nombre?> <?=$venta->apellidos?></p>
+                        <b>Telefono: </b>
+                        <p><?=$venta->telefono?></p>
+                        <h4>Domicilio</h4>
+                        <b>Calle y num:</b>
+                        <p><?=$direccion->calle?> <?=$direccion->num_ext?></p>
+                        <b>Num interior:</b>
+                        <p><?=$direccion->num_int?></p>
+                        <b>Colonia y CP:</b>
+                        <p><?=$direccion->colonia?> <?=$direccion->codigo_postal?></p>
+                        <b>Municipio, Estado y Pais</b>
+                        <p><?=$direccion->municipio?>, <?=$direccion->estado?>, <?=$direccion->pais?></p>
 
                         <a href="ventas.php?id=<?=$venta->id?>" class="btn btn-primary">Ver Venta</a>
                         
-                        <?php } } ?>
+                        <?php } } } ?>
                     </div>
                 </div>
             </div>

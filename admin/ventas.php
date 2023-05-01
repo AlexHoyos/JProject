@@ -10,7 +10,7 @@
         $id = intval($_GET["id"]);
   ?>
   
-    <section class="w-100 bg-light d-flex flex-column justify-content-center align-items-center" id="#mensajes">
+    <section class="w-100 bg-light d-flex flex-column justify-content-center align-items-center" id="#ventas">
 
         <h2>Ventas</h2>
 
@@ -38,6 +38,8 @@
                         <?php
                             $venta = Venta::getVentaById($id);
                             if($venta != null){
+                                $pintura = Pintura::getPinturaById($venta->id_pintura);
+                                if($pintura != null) {
                         ?>
                         <b>Nombre:</b>
                         <p><?=$venta->nombre?> <?=$venta->apellidos?></p>
@@ -65,6 +67,13 @@
                                 <span class="badge badge-success">Venta completada</span>
                             <?php } ?>
                         </h4>
+                        <hr>
+                        <h4>Detalles pintura</h4>
+                        <b>Titulo:</b>
+                        <p><?=$pintura->titulo?></p>
+                        <b>Cuadro:</b><br>
+                        <img src="<?=WEB_URL?>/IMG/pinturas/<?=$pintura->vista_url?>" id="imgPrev" width="400" alt="">
+                        <br>
                         <?php if($venta->pagado == 'n' && $venta->estado == 'pendiente'){ ?>
                             <button class="btn btn-primary" onclick="confirmPago(<?=$venta->id?>)">Confirmar pago</button>
                         <?php } else if($venta->pagado == 's' && $venta->id_envio == NULL){
@@ -106,17 +115,18 @@
                                 <b>Link de rastreo:</b><br>
                                 <a href="<?=(!empty($envio->url_rastreo)?$envio_url_rastreo:"#")?>">Enlace de rastreo</a><br>
                                 <b>Costo de envio:</b>
-                                <p>$<?=$envio->costo?></p>
+                                <p>$<?=$envio->costo?></p><br>
+                                <a href="envios.php?id=<?=$envio->id?>" class="btn btn-primary">Ver más detalles del envio</a>
                         <?php       }
                                 } ?>
                         <?php if($venta->pagado == "s" && $venta->id_envio != NULL && $venta->estado == 'pendiente') { ?>
-                            <button class="btn btn-primary" onclick="confirmarEntrega(<?=$venta->id?>)">Confirmar entrega</button>
+                            <button class="btn btn-warning" onclick="confirmarEntrega(<?=$venta->id?>)">Confirmar entrega</button>
                         <?php } ?>
                         
                         <?php if($venta->estado != "cancelado"){?>
                             <button class="btn btn-danger" onclick="cancelarVenta(<?=$venta->id?>)">Cancelar venta</button>
                         <?php } ?>
-                    <?php } ?>
+                    <?php } } ?>
                     </div>
                 </div>
             </div>

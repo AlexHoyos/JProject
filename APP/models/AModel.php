@@ -100,4 +100,8 @@ abstract class AModel {
 
     }
 
+    public static function countAll($class = Self::class):int{
+        return intval((AModel::_fetch("SELECT COUNT(*) as filas FROM ".$class::getTablename()))[0]->filas);
+    }
+
 }
