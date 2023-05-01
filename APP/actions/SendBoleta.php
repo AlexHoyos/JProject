@@ -28,7 +28,9 @@ if(isset($_POST["pdf"], $_POST["nombre"], $_POST["apellido_mat"], $_POST["apelli
                         $email->addAttachment("../storage/boletas/".$fileName, $fileName);
                         $email->Subject = "Boleta de pago";
                         $email->Body = "Hola! Gracias por tu interes en la pintura <b>{$pintura->titulo}</b> <br>";
-                        $email->Body .= "El monto a pagar es de <b>$".$pintura->precio." </b> <br>";
+                        $email->Body .= "El monto a pagar es de <b>$".floatval($pintura->precio+200)." </b> <br>";
+                        $email->Body .= "En la boleta encontraras el desglose del precio. <br>";
+                        $email->Body .= "<b>¡IMPORTANTE!</b> Sólo se realizan envios en México <br>";
                         $email->Body .= "En el PDF adjunto incluye la información necesaria para realizar tu pago! Muchas gracias :)";
                         if($email->send()){
 
