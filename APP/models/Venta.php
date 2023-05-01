@@ -34,6 +34,14 @@ class Venta extends AModel {
         return false;
     }
 
+    public static function getVentaByEnvioId($envio_id){
+        $envio_id = intval($envio_id);
+        $ventas = Self::get(Self::class, "*", "WHERE id_envio = {$envio_id}", "", "", PDO::FETCH_OBJ);
+        if(count($ventas) >= 1)
+            return $ventas[0];
+        return null;
+    }
+
     public static function isDisponibleAVenta($pintura_id):bool{
         $ventas = AModel::get(Self::class, "*", "WHERE id_pintura = {$pintura_id} AND estado != 'cancelado'");
         return (count($ventas) == 0);

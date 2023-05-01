@@ -22,6 +22,11 @@ class Envio extends AModel {
         return 0;
     }
 
+    public static function getEnviosNoEntregados():array{
+        $envios = AModel::_fetch("SELECT envios.id as id, proveedor, guia, url_rastreo, costo, envios.created_at, ventas.id as id_venta FROM envios, ventas WHERE ventas.id_envio = envios.id AND estado != 'completado';", PDO::FETCH_OBJ);
+        return $envios;
+    }
+
     public static function getEnvioById($id):object|null{
         $id = intval($id);
         $envios = Self::get(Self::class, "*", "WHERE id = {$id}", "", "", PDO::FETCH_OBJ);

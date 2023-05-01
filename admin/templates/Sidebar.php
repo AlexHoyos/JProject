@@ -36,7 +36,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white <?=($actual=="envios")?"active":""?>">
+        <a href="envios.php" class="nav-link text-white <?=($actual=="envios")?"active":""?>">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
           Envios
         </a>
