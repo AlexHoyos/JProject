@@ -19,9 +19,9 @@ class Pintura extends AModel {
         }
     }
 
-    public static function getPinturasDispo($search = ""): array {
+    public static function getPinturasDispo($search = "", $tipo_color = ""): array {
 
-        return Self::_fetch("SELECT * FROM pinturas WHERE id NOT IN (SELECT id_pintura FROM ventas WHERE estado != 'cancelado') AND ( titulo LIKE '%{$search}%' OR descripcion LIKE '%{$search}%') ORDER BY id DESC");
+        return Self::_fetch("SELECT * FROM pinturas WHERE id NOT IN (SELECT id_pintura FROM ventas WHERE estado != 'cancelado') AND ( titulo LIKE '%{$search}%' OR descripcion LIKE '%{$search}%') AND tipo_color LIKE '%{$tipo_color}%' ORDER BY id DESC");
     }
 
     public static function getPinturasVendidas($search = ""):array {

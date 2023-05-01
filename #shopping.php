@@ -9,7 +9,7 @@
         <link href="CSS/shopping.css" rel="stylesheet" />
         <link href="CSS/style.scss" rel="stylesheet" />
         <?php include("head.php"); ?>
-        
+        <?php include("pantalla_compra.php"); ?>
     </head>
     <body>
         <?php include("menunav.php"); ?>
@@ -34,7 +34,7 @@
                                     Recientemente el artista Jesús Palacios ha puesto una <br> nueva obra a la venta, ¡ven a darle un vistazo!
                                  </p>
                                  <div class="btn-box">
-                                    <a href="#pinturas" class="btn1">Comprar ahora</a>
+                                    <a href="" class="btn1">Comprar ahora</a>
                                  </div>
                               </div>
                            </div>
@@ -55,7 +55,7 @@
                                     ¿Te ha interesado la pintura "Regocijo cósmico"? Ven a echarle un vistazo a las pinturas con la misma técnica artística. 
                                  </p>
                                  <div class="btn-box">
-                                    <a href="#pin_fri" class="btn1">Comprar ahora</a>
+                                    <a href="" class="btn1">Comprar ahora</a>
                                  </div>
                               </div>
                            </div>
@@ -77,7 +77,7 @@
                                     "Hoguera ardiente de las pasiones"? Ven a echarle un vistazo a las pinturas con la misma técnica artística.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="#pin_cal" class="btn1">Comprar ahora</a>
+                                    <a href="" class="btn1">Comprar ahora</a>
                                  </div>
                               </div>
                            </div>
@@ -257,7 +257,7 @@
                      <p style="margin-top: 20px;margin-bottom: 30px;">
                         Si el trabajo del artista le ha gustado, puede tener un pintura de él decorando en su hogar.
                      </p>
-                     <a href="#pinturas">Ir a comprar ahora</a>
+                     <a href="">Ir a comprar ahora</a>
                   </div>
                </div>
             </div>
@@ -266,21 +266,16 @@
       <!-- end arrival section -->
    
       <!-- product section -->
-      <section id="pinturas" class="product_section layout_padding">
+      <section class="product_section layout_padding">
          <div class="container">
-            <div id="pin_cal" class="heading_container heading_center">
-               <h2 >
+            <div class="heading_container heading_center">
+               <h2 id="pinturas">
                   Pinturas <span>disponibles</span>
                </h2>
-            </div><br><br>
-            <div >
-               <h3>
-                  <b>Pinturas cálidas</b>
-               </h3>
             </div>
             <div class="row">
-            <?php
-               $pinturas = Pintura::getPinturasDispo("", "calido");
+               <?php
+               $pinturas = Pintura::getPinturasDispo();
                foreach($pinturas as $pintura){
                ?>
                <div class="col-sm-6 col-md-4 col-lg-4">
@@ -302,47 +297,13 @@
                </div>
                <?php } ?>
             </div>
-         </div>
-      </section>
-
-                  <br>
-      <section id="pin_fri" class="product_section layout_padding">
-         <div class="container">
-            <div>
-               <h3 >
-                  <b>Pinturas frías</b>
-               </h3>
-            </div><br><br>
-            <div class="row">
-            <?php
-               $pinturas = Pintura::getPinturasDispo("", "frio");
-               foreach($pinturas as $pintura){
-               ?>
-               <div class="col-sm-6 col-md-4 col-lg-4">
-                  <div class="box">
-                     <div class="option_container">
-                        <div class="options">
-                           <a href="#" class="option1"><?=$pintura->tecnica?></a>
-                           <a href="javascript:abrir(<?=$pintura->id?>)"  class="option2" >Comprar</a>
-                        </div>
-                     </div>
-                     <div class="img-box">
-                        <img src="IMG/pinturas/<?=$pintura->vista_url?>" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h5><?=$pintura->titulo?></h5>
-                        <h6>$<?=$pintura->precio?></h6>
-                     </div>
-                  </div>
-               </div>
-               <?php } ?>
+            <div class="btn-box">
+               <a href="">Ver todas las pinturas</a>
             </div>
          </div>
       </section>
-    
       
-      <!--Para hacer las funcionalidades en la pantalla emergente-->
-     <script src="JS/funciones_factura.js"></script>
+      
       <!--Script para generar el pdf--> 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
 
@@ -357,6 +318,7 @@
       <script src="JS/bootstrap.js"></script>
       <!-- custom js -->
       <script src="JS/custom.js"></script>
-      <?php include("pantalla_compra.php"); ?>
+      <!--Para hacer las funcionalidades en la pantalla emergente-->
+      <script src="JS/funciones_compra.js"></script>
     </body>
 </html>

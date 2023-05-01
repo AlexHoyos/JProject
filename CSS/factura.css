@@ -1,0 +1,59 @@
+body{
+    font-family: "Century Gothic";
+    margin: 30px;
+}
+.icono {
+    width: 95px;
+    height: 100px;
+}
+
+.info {
+    font-size: 15px;
+}
+
+.espacio {
+    width: 79%;
+}
+
+.borde {
+    border: solid 2px #a78906;
+    display: none;
+}
+
+.pint {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.diseño {
+    font-weight: bold;
+    background-color: #a78906;
+}
+
+.total {
+    text-align: right;
+}
+
+.final {
+    background-color: black;
+    color: white;
+}
+
+.margen {
+    margin: 20px;
+}
+
+.msj {
+    font-size: small;
+}
+
+.cubrir {
+    background-color: white;
+    height: 660px;
+    position: relative;
+    top: -680px;
+    display: none;
+}
+
+

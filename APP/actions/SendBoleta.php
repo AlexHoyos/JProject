@@ -23,7 +23,7 @@ if(isset($_POST["pdf"], $_POST["nombre"], $_POST["apellido_mat"], $_POST["apelli
                         $pdfFileData = base64_decode($_POST["pdf"]);
                         $fileName = "Boleta_Pago_". $_POST["correo"] . "_". $pintura_id .".pdf";
                         file_put_contents("../storage/boletas/".$fileName, $pdfFileData) or die ("No se pudo crear el archivo");
-                
+                        $email->isHTML();
                         $email->addAddress($_POST["correo"], $_POST["nombre"]);
                         $email->addAttachment("../storage/boletas/".$fileName, $fileName);
                         $email->Subject = "Boleta de pago";
