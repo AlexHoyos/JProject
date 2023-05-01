@@ -24,6 +24,10 @@ class Venta extends AModel {
         return null;
     }
 
+    public static function searchVentas($search = ""){
+        return Self::_fetch("SELECT ventas.* FROM ventas, pinturas WHERE ventas.id_pintura = pinturas.id AND ( ventas.id LIKE '%{$search}%' OR nombre LIKE '%{$search}%' OR apellidos LIKE '%{$search}%' OR telefono LIKE '%{$search}%' OR pinturas.titulo LIKE '%{$search}%')");
+    }
+
     public static function confirmarPagoVenta($id):bool {
         $venta = Self::getVentaById($id);
         if($venta != null){
@@ -37,6 +41,14 @@ class Venta extends AModel {
     public static function getVentaByEnvioId($envio_id){
         $envio_id = intval($envio_id);
         $ventas = Self::get(Self::class, "*", "WHERE id_envio = {$envio_id}", "", "", PDO::FETCH_OBJ);
+        if(count($ventas) >= 1)
+            return $ventas[0];
+        return null;
+    }
+
+    public static function getVentaByPinturaId($pintura_id){
+        $pintura_id = intval($pintura_id);
+        $ventas = Self::get(Self::class, "*", "WHERE id_pintura = {$pintura_id} AND estado != 'cancelado'", "ORDER BY id DESC", "", PDO::FETCH_OBJ);
         if(count($ventas) >= 1)
             return $ventas[0];
         return null;

@@ -7,7 +7,7 @@
   
     <section class="w-100 bg-light d-flex flex-column justify-content-center align-items-center" id="#mensajes">
 
-        <h2>Envios en proceso
+        <h2>Envios
             <?php
 
             $id = 0;

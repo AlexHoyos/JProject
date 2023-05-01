@@ -19,9 +19,13 @@ class Pintura extends AModel {
         }
     }
 
-    public static function getPinturasDispo(): array {
+    public static function getPinturasDispo($search = ""): array {
 
-        return Self::_fetch("SELECT * FROM pinturas WHERE id NOT IN (SELECT id_pintura FROM ventas WHERE estado != 'cancelado')");
+        return Self::_fetch("SELECT * FROM pinturas WHERE id NOT IN (SELECT id_pintura FROM ventas WHERE estado != 'cancelado') AND ( titulo LIKE '%{$search}%' OR descripcion LIKE '%{$search}%') ORDER BY id DESC");
+    }
+
+    public static function getPinturasVendidas($search = ""):array {
+        return Self::_fetch("SELECT * FROM pinturas WHERE id IN (SELECT id_pintura FROM ventas WHERE estado != 'cancelado') AND (titulo LIKE '%{$search}%' OR descripcion LIKE '%{$search}%') ORDER BY id DESC");
     }
 
     public static function isPinturaDisponible($id): bool {
@@ -36,8 +40,8 @@ class Pintura extends AModel {
 
     }
 
-    public static function getAll(): array {
-        return Self::get(Self::class, "*", "", "ORDER BY id DESC", "", PDO::FETCH_OBJ);
+    public static function getAll($search = ""): array {
+        return Self::get(Self::class, "*", "WHERE titulo LIKE '%{$search}%' OR descripcion LIKE '%{$search}%'", "ORDER BY id DESC", "", PDO::FETCH_OBJ);
     }
 
 }

@@ -8,6 +8,10 @@
     $id = 0;
     if(isset($_GET["id"]))
         $id = intval($_GET["id"]);
+
+    $search = "";
+    if(isset($_GET["search"]))
+        $search = $_GET["search"];
   ?>
   
     <section class="w-100 bg-light d-flex flex-column justify-content-center align-items-center" id="#ventas">
@@ -15,18 +19,25 @@
         <h2>Ventas</h2>
 
         <div class="row w-100">
-            <div class="col-12 d-flex justify-content-end">
-                <a href="#" class="btn btn-primary m-2">Buscar</a>
+            <div class="col-6">
+                <a href="ventas.php" class="btn btn-link">Quitar filtros</a>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <a href="#" onclick="buscar()" class="btn btn-primary m-2">Buscar</a>
             </div>
             <div class="col-3">
                 <div class="list-group w-100" style="height:500px;overflow-y:scroll;overflow-x:hidden;">
                     <?php
-                        $ventas = Venta::getAllPendVentas();
+                        if(empty($search))
+                            $ventas = Venta::getAllPendVentas();
+                        else
+                            $ventas = Venta::searchVentas($search);
+
                         foreach($ventas as $venta){
                             $isActive = $id == $venta->id;
                             $pintura = Pintura::getPinturaById($venta->id_pintura)
                     ?>
-                    <a href="?id=<?=$venta->id?>" class="list-group-item list-group-item-action <?=($isActive)?"active":""?>">
+                    <a href="#" onclick="insertParam('id', <?=$venta->id?>)"  class="list-group-item list-group-item-action <?=($isActive)?"active":""?>">
                         <b>#<?=$venta->id?></b> <?=$pintura->titulo?>
                         </a>
                     <?php } ?>
@@ -53,18 +64,18 @@
                             <?php
                                 if($venta->pagado == 's'){
                             ?>
-                                <span class="badge badge-success">Pago confirmado</span>
+                                <span class="badge bg-success">Pago confirmado</span>
                             <?php } else { ?>
-                                <span class="badge badge-danger">No se ha confirmado el pago</span>
+                                <span class="badge bg-danger">No se ha confirmado el pago</span>
                             <?php } ?>
                         </h4>
                         <h4>
                             <?php if($venta->estado == 'pendiente') { ?>
-                                <span class="badge badge-warning">Venta en proceso</span>
+                                <span class="badge bg-warning">Venta en proceso</span>
                             <?php } else if($venta->estado == 'cancelado') { ?>
-                                <span class="badge badge-danger">Venta cancelada</span>
+                                <span class="badge bg-danger">Venta cancelada</span>
                             <?php } else { ?>
-                                <span class="badge badge-success">Venta completada</span>
+                                <span class="badge bg-success">Venta completada</span>
                             <?php } ?>
                         </h4>
                         <hr>
@@ -73,7 +84,8 @@
                         <p><?=$pintura->titulo?></p>
                         <b>Cuadro:</b><br>
                         <img src="<?=WEB_URL?>/IMG/pinturas/<?=$pintura->vista_url?>" id="imgPrev" width="400" alt="">
-                        <br>
+                        <br><br>
+                        <a href="pinturas.php?id=<?=$pintura->id?>" class="btn btn-primary">Ver pintura</a>
                         <?php if($venta->pagado == 'n' && $venta->estado == 'pendiente'){ ?>
                             <button class="btn btn-primary" onclick="confirmPago(<?=$venta->id?>)">Confirmar pago</button>
                         <?php } else if($venta->pagado == 's' && $venta->id_envio == NULL){
@@ -138,6 +150,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+<script src="../JS/admin.js"></script>
 <script>
     
     function registrarEnvio(id){
@@ -232,20 +245,10 @@
         }
     }
 
-    function atenderMensaje(id){
-
-        $.ajax({
-            url: "../APP/actions/SetMensajeAtendido.php?id="+id,
-            type: "GET",
-            success: function(res){
-                alert(res);
-                window.location.reload()
-            },
-            error: function(res){
-                alert("Error al actualizar el mensaje!")
-            }
-        })
-
+    function buscar(){
+        let searchQuery = prompt('Buscar venta:');
+        if(searchQuery != null)
+            insertParam('search', searchQuery)
     }
 </script>
 </body>
