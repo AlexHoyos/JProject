@@ -22,4 +22,12 @@ class Direccion extends AModel {
         return 0;
     }
 
+    public static function getDireccionById($id):object|null{
+        $id = intval($id);
+        $direcciones = Self::get(Self::class, "*", "WHERE id = {$id}", "", "", PDO::FETCH_OBJ);
+        if(count($direcciones) >= 1)
+            return $direcciones[0];
+        return null;
+    }
+
 }
