@@ -1,48 +1,20 @@
 function cerrar(){
     document.getElementById('fondo').style.display="none";
-    document.getElementById('img1').style.display="none";
-    document.getElementById('img2').style.display="none";
-    document.getElementById('img3').style.display="none";
-    document.getElementById('img4').style.display="none";
-    document.getElementById('img5').style.display="none";
-    document.getElementById('img6').style.display="none";
-    document.getElementById('img7').style.display="none";
-    document.getElementById('img8').style.display="none";
-    document.getElementById('img9').style.display="none";
-    document.getElementById('img10').style.display="none";
-    document.getElementById('img11').style.display="none";
-    document.getElementById('img12').style.display="none";
-    document.getElementById('img13').style.display="none";
-    document.getElementById('img14').style.display="none";
-    document.getElementById('img15').style.display="none";
-    document.getElementById('img16').style.display="none";
-    document.getElementById('img17').style.display="none";
-    document.getElementById('img18').style.display="none";
-    document.getElementById('img19').style.display="none";
-    document.getElementById('img20').style.display="none";
-    document.getElementById('img21').style.display="none";
-    document.getElementById('img22').style.display="none";
-    document.getElementById('img23').style.display="none";
-    document.getElementById('img24').style.display="none";
-    document.getElementById('img25').style.display="none";
-    document.getElementById('img26').style.display="none";
-    document.getElementById('img27').style.display="none";
-    document.getElementById('img28').style.display="none";
-    document.getElementById('img29').style.display="none";
-    document.getElementById('img30').style.display="none";
-    document.getElementById('img31').style.display="none";
-    document.getElementById('img32').style.display="none";
-    document.getElementById('img33').style.display="none";
-    document.getElementById('img34').style.display="none";
-    document.getElementById('img35').style.display="none";
-    document.getElementById('img36').style.display="none";
-    document.getElementById('img37').style.display="none";
-    document.getElementById('img38').style.display="none";
-    document.getElementById('img39').style.display="none";
  }
 
-function abrir (num){
-    document.getElementById('fondo').style.display="flex";
+ 
+function abrir(item){
+    var $fondo = $("#fondo")
+    var $imagen_pintura = $("#imagen_pintura")
+    
+    var $item = $(item)
+    var img_url = $item.attr("data-img")
+    console.log(img_url)
+
+    $imagen_pintura.attr("src", img_url)
+    $imagen_pintura.css("display", "flex")
+    $fondo.css("display", "flex")
+    /*
     switch(num){
 
         case 1:
@@ -162,5 +134,5 @@ function abrir (num){
         case 39:
             document.getElementById('img39').style.display="flex";
             break; 
-    }
+    }*/
 }

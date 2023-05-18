@@ -39,28 +39,27 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-        // Obtener una referencia al elemento canvas del DOM
+
     const $grafica = document.querySelector("#graficaVentas");
-    // Las etiquetas son las porciones de la gráfica
+
     const etiquetas = ["pendientes", "canceladas", "completadas"]
-    // Podemos tener varios conjuntos de datos. Comencemos con uno
+
     const datosIngresos = {
-        data: [<?=Venta::countByStatus()?>, <?=Venta::countByStatus("cancelado")?>, <?=Venta::countByStatus("completado")?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-        // Ahora debería haber tantos background colors como datos, es decir, para este ejemplo, 4
+        data: [<?=Venta::countByStatus()?>, <?=Venta::countByStatus("cancelado")?>, <?=Venta::countByStatus("completado")?>],
         backgroundColor: [
             'rgba(247, 220, 111 ,0.2)',
             'rgba(236, 112, 99, 0.2)',
             'rgba(88, 214, 141, 0.2)',
-        ],// Color de fondo
+        ],
         borderColor: [
             'rgba(241, 196, 15 ,1)',
             'rgba(148, 49, 38, 1)',
             'rgba(29, 131, 72, 1)',
-        ],// Color del borde
-        borderWidth: 1,// Ancho del borde
+        ],
+        borderWidth: 1,
     };
     new Chart($grafica, {
-        type: 'pie',// Tipo de gráfica. Puede ser dougnhut o pie
+        type: 'pie',
         data: {
             labels: etiquetas,
             datasets: [

@@ -142,6 +142,10 @@
     bottom: 45%;
 }
 
+.grid-cont .item a {
+    text-decoration: none;
+}
+
 .item:nth-child(1){
     grid-row-start: span 3;
 }
@@ -205,5 +209,4 @@
     grid-row-start: span 2;
     grid-column-start: span 2;
 }
-
 
