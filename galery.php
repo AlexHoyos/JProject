@@ -35,7 +35,7 @@
             data-tecnica="<?=$pintura->tecnica?>" data-tipocolor="<?=$pintura->tipo_color?>">
             <img src="IMG/pinturas/<?=$pintura->vista_url?>" alt="<?=$pintura->titulo?>">
             <div class="capa">
-                <p> <?=$pintura->titulo?></p>
+                <p><?=$pintura->titulo?></p>
             </div>
         </div>
         <?php } ?>

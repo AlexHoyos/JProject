@@ -7,170 +7,47 @@
     right: 0;
     display: none;
     z-index: 500;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+.button_cerrar {
+    display:flex;
+    width:100%;
+    align-items:center;
+    justify-content:end;
+    padding-right: 10px;
+}
+
+.info_pintura {
+    padding: 10px;
+    width: 700px;
+    background: #fff;
+    flex-wrap: wrap;
+}
+.info_pintura * {
+    display: flex;
+    flex-direction: column;
+}
+.info_pintura p {
+    flex-direction: row;
+}
+.buynowBTN {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 30px;
+    width: 165px;
+    text-align: center;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    margin: 5px 0;
+    background-color: #000000;
+    border: 1px solid #000000;
+    color: #ffffff;
+    text-decoration: none;
   }
   
-  .fondo .cerrarp {
-      margin-left: auto;
-      top: 20%;
-      display: block;
-      z-index: 500;
-  
+.buynowBTN:hover {
+    background-color: transparent;
+    color: #000000;
   }
-  
-  .img1 {
-      display: none;
-      margin: auto;
-  }
-  .img2{
-      display: none;
-      margin: auto;
-  }
-  .img3 {
-      display: none;
-      margin: auto;
-  }
-  .img4 {
-      display: none;
-      margin: auto;
-  }
-  .img5 {
-      display: none;
-      margin: auto;
-  }
-  .img6 {
-      display: none;
-      margin: auto;
-  }
-  .img7 {
-      display: none;
-      margin: auto;
-  }
-  .img8 {
-      display: none;
-      margin: auto;
-  }
-  .img9 {
-      display: none;
-      margin: auto;
-  }
-  .img10 {
-      display: none;
-      margin: auto;
-  }
-  .img11 {
-      display: none;
-      margin: auto;
-  }
-  .img12 {
-      display: none;
-      margin: auto;
-  }
-  .img13 {
-      display: none;
-      margin: auto;
-  }
-  .img14 {
-      display: none;
-      margin: auto;
-  }
-  .img15 {
-      display: none;
-      margin: auto;
-  }
-  .img16 {
-      display: none;
-      margin: auto;
-  }
-  .img17 {
-      display: none;
-      margin: auto;
-  }
-  .img18 {
-      display: none;
-      margin: auto;
-  }
-  .img19 {
-      display: none;
-      margin: auto;
-  }
-  .img20 {
-      display: none;
-      margin: auto;
-  }
-  .img21 {
-      display: none;
-      margin: auto;
-  }
-  .img22 {
-      display: none;
-      margin: auto;
-  }
-  .img23 {
-      display: none;
-      margin: auto;
-  }
-  .img24 {
-      display: none;
-      margin: auto;
-  }
-  .img25 {
-      display: none;
-      margin: auto;
-  }
-  .img26 {
-      display: none;
-      margin: auto;
-  }
-  .img27 {
-      display: none;
-      margin: auto;
-  }
-  .img28 {
-      display: none;
-      margin: auto;
-  }
-  .img29 {
-      display: none;
-      margin: auto;
-  }
-  .img30 {
-      display: none;
-      margin: auto;
-  }
-  .img31 {
-      display: none;
-      margin: auto;
-  }
-  .img32 {
-      display: none;
-      margin: auto;
-  }
-  .img33 {
-      display: none;
-      margin: auto;
-  }
-  .img34 {
-      display: none;
-      margin: auto;
-  }
-  .img35 {
-      display: none;
-      margin: auto;
-  }
-  .img36 {
-      display: none;
-      margin: auto;
-  }
-  .img37 {
-      display: none;
-      margin: auto;
-  }
-  .img38 {
-      display: none;
-      margin: auto;
-  }
-  .img39 {
-      display: none;
-      margin: auto;
-  }
-    
